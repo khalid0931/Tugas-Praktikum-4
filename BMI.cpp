@@ -1,32 +1,43 @@
 #include <iostream>
 using namespace std;
 
-float hitungBMI(float berat,float tinggi){
-    return berat/(tinggi*tinggi);
+void inputData (float berat,float tinggi){
+    cout<< "masukan berat badan = ";
+    cin>> berat;
+    cout<< "masukan tinggi badan = ";
+    cin>> tinggi;
+}
+
+float hitungBMI(float berat,float tinggi,float BMI){
+    return berat/(tinggi * tinggi);
 }
 
 string Status_BMI(float BMI){
-    if (BMI < 18,5){
+    if (BMI < 18,5)
         return "berat badan kurang";
-    }
-    else if(BMI < 25){
+    else if(BMI < 25)
         return "berat badan normal";
-    }
+    else if(BMI < 30)
+        return "berat badan kelebihan";
+    else
+        return "obesitas";
     
 }
 
 int main(){
-    float nilBI,nilMT,rerata;
-    string status;
+    float berat,tinggi,BMI;
     
+    cout << "selamat datang mahasisawa kelas A 2025" <<endl;
 
-    cout <<"masukan nilai bahasa inggris = ";
-    cin >> nilBI;
-    cout <<"masukan nilai matematika = ";
-    cin >> nilMT;
+    inputData(berat,tinggi);
+
+    BMI = hitungBMI(berat, tinggi,BMI);
+
+    cout <<"\n--hasil--"<<endl;
     
-    rerata = Rata_rata(nilBI,nilMT);
+   cout << "BMI anda = "<<Status_BMI<<" ,status = "<<Status_BMI(BMI)<<endl;
 
-    cout << "Status kelulusan = "<<Status_lulus(rerata)<<" ,dengan nilai rerata = "<<rerata<<endl;
+   return 0;
 
+    
 }
